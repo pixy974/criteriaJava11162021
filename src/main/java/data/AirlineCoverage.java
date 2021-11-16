@@ -1,5 +1,7 @@
 package data;
 
+import javax.persistence.criteria.Expression;
+
 public class AirlineCoverage {
 
     long nbRoutes;
@@ -11,7 +13,7 @@ public class AirlineCoverage {
      * @param country
      * @param airlineName
      */
-    public AirlineCoverage(long nbRoutes, String country, String airlineName) {
+    public AirlineCoverage(Long nbRoutes, String country, String airlineName) {
         super();
         this.nbRoutes = nbRoutes;
         this.country = country;

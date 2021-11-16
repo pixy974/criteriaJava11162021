@@ -3,11 +3,6 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.ParameterExpression;
-import javax.persistence.criteria.Root;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,18 +26,8 @@ public class App {
                 .createQuery("from Airline as al where al.country = :country", Airline.class)
                 .setParameter("country", "France").getResultList();
 
-        showAirlines(airlines);
+        //showAirlines(airlines);
 
-        CriteriaBuilder cb = em.getCriteriaBuilder();
-        CriteriaQuery<Airline> cq = cb.createQuery(Airline.class);
-        ParameterExpression<String> valeur = cb.parameter(String.class);
-        Root<Airline> airline = cq.from(Airline.class);
-        cq.select(airline).where(cb.equal(airline.get("country"), valeur));
-        TypedQuery<Airline> tq = em.createQuery(cq);
-        tq.setParameter(valeur, "France");
-        airlines = tq.getResultList();
-
-        showAirlines(airlines);
 
         log.debug("Search for French Airlines going to Miami");
 

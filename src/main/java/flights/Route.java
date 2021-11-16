@@ -133,4 +133,18 @@ public class Route implements Serializable {
         this.equipment = equipment;
     }
 
+    @Override
+    public String toString() {
+        return "Route{" +
+                "airlineCode='" + airlineCode + '\'' +
+                ", airline=" + airline +
+                ", sourceCode='" + sourceCode + '\'' +
+                ", source=" + source +
+                ", destinationCode='" + destinationCode + '\'' +
+                ", destination=" + destination +
+                ", codeshare=" + codeshare +
+                ", stops=" + stops +
+                ", equipment='" + equipment + '\'' +
+                '}';
+    }
 }
